@@ -6,8 +6,8 @@
   "repository": "https://github.com/samakunchan/les-petit-plats.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint \"{css,scripts}/**/*.js\" --fix",
-    "format": "prettier --write \"scripts/**/*.js\""
+    "lint": "eslint \"src/**/*.js\" --fix",
+    "format": "prettier --write \"datas/**/*.json\" \"src/**/*.js\""
   },
   "author": "samakunchan",
   "license": "ISC",
@@ -16,5 +16,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.3.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
   }
 }
