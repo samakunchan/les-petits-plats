@@ -1,0 +1,12 @@
+main {
+  background: var(--main-bg);
+}
+
+.card h4,
+.card h5 {
+  color: var(--tertiary-color);
+}
+
+.ingredient small {
+  color: var(--tertiary-color);
+}

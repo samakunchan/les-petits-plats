@@ -1,0 +1,16 @@
+.search-icon {
+    stroke: var(--search-icon-color);
+    margin: 9px 9px 9px 0;
+}
+
+.search-icon-black {
+    --search-icon-color: white;
+}
+
+.search-icon-black {
+    --search-icon-color: var(--primary-color);
+}
+
+.search-icon-grey {
+    --search-icon-color: var(--tertiary-color);
+}

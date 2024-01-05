@@ -1,0 +1,11 @@
+.filter-card-ingredients {
+    width: 14em;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+}
+
+.list-ingredients {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    max-height: 10em;
+}
