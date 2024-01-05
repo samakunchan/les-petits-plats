@@ -5,7 +5,14 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      gap: {
+        '30': '6rem',
+      },
+      'my-4' : {
+        margin: '1rem 0'
+      }
+    },
   },
   plugins: [],
 }
