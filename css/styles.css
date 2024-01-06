@@ -1,0 +1,28 @@
+/* ABSTRACTS */
+@import 'abstracts/animation.css';
+@import 'abstracts/transition.css';
+
+/* BASE */
+@import 'base/base.css';
+@import 'base/typography.css';
+
+/* COMPONENTS */
+@import 'components/badge.css';
+@import 'components/card-dish.css';
+@import 'components/card-filter.css';
+@import 'components/input.css';
+@import 'components/icons.css';
+@import 'components/tag.css';
+
+/* LAYOUT */
+@import 'layout/header.css';
+@import 'layout/content.css';
+
+/* PAGES */
+@import 'pages/home.css';
+
+/* THEMES */
+@import 'themes/theme.css';
+
+/* VENDORS */
+@import 'vendors/tailwind-library.css';

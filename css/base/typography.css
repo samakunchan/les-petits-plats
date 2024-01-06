@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;700;800&display=swap');
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400 !important;
+}
+
+.card-dish h3 {
+  font-size: 18px;
+}
+
+.header-search h2 {
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+.card-dish h4,
+.card-dish h5,
+.card-dish .h4,
+.card-dish .h5 {
+  /*font-weight: 700 !important;*/
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.filter-ingredients h4,
+.ingredient p {
+  font-weight: 500;
+}
+
+.ingredient small {
+  font-weight: 400;
+}

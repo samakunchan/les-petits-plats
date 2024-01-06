@@ -1,1 +1,1 @@
-npx tailwindcss -i ./css/main.css -o ./dist/main.css --watch
+npx tailwindcss -i ./css/styles.css -o ./dist/main.css --watch

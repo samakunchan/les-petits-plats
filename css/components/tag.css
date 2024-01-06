@@ -1,0 +1,21 @@
+.section-tag {
+  margin: 1em 0;
+  min-height: 3em;
+}
+
+.tag {
+  min-height: 3em;
+  border-radius: 10px;
+  background: var(--secondary-color);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  align-items: center;
+  max-width: 13em;
+  width: 100%;
+}
+
+.tag svg {
+  cursor: pointer;
+}

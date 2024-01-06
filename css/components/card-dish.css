@@ -1,0 +1,31 @@
+.container-card {
+  flex: 0 0 33.3333%;
+  padding: 1em;
+}
+
+.card-dish {
+  background: var(--card-bg);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: var(--box-shadow-card);
+}
+
+.card-dish img {
+  height: 18em;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content-ingredients {
+  padding: 1.2em 1.5em;
+}
+
+.card-dish h4,
+.card-dish h3,
+.card-dish .h4,
+.card-dish .h3,
+.card-dish .dish-description,
+.card-dish .ingredients {
+  padding: 0.7em 0;
+}

@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #ffd15b;
+  --tertiary-color: #7a7a7a;
+  --tertiary-color2: #c6c6c6;
+  --main-bg: #e5e5e5;
+  --card-bg: white;
+  --bg-search-color: var(--primary-color);
+  --search-icon-color: white;
+  --border-radius: 11px;
+  --highlight-color: transparent;
+  --box-shadow-card: 0 4px 34px 30px #0000000a;
+}
