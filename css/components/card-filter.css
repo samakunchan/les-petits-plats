@@ -1,11 +1,21 @@
-.filter-card-ingredients {
-    width: 14em;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
+.row-filters {
+  position: relative;
+  height: 15em;
+}
+
+.row-filters .filter-card-ingredients {
+  width: 14em;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  position: absolute;
+  z-index: 1;
+  height: 3.5em;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-card);
 }
 
 .list-ingredients {
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    max-height: 10em;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  max-height: 10em;
 }

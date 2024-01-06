@@ -43,7 +43,7 @@ h3 {
 .card-dish h4,
 .card-dish h5,
 .card-dish .h4,
-.card-dish .h5{
+.card-dish .h5 {
   /*font-weight: 700 !important;*/
   text-transform: uppercase;
   font-size: 14px;
@@ -75,7 +75,8 @@ h3 {
   overflow: hidden;
   border-radius: var(--border-radius);
   position: relative;
-  box-shadow: 0 4px 34px 30px #0000000A;
+  box-shadow: var(--box-shadow-card);
+  max-width: 25em;
 }
 
 .card-dish img {
@@ -95,13 +96,23 @@ h3 {
 .card-dish .h3,
 .card-dish .dish-description,
 .card-dish .ingredients {
-  padding: .7em 0;
+  padding: 0.7em 0;
 }
 
-.filter-card-ingredients {
+.row-filters {
+  position: relative;
+  height: 15em;
+}
+
+.row-filters .filter-card-ingredients {
   width: 14em;
   background: var(--card-bg);
   border-radius: var(--border-radius);
+  position: absolute;
+  z-index: 1;
+  height: 3.5em;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-card);
 }
 
 .list-ingredients {
@@ -130,7 +141,8 @@ input[type='search']::-webkit-search-cancel-button {
   border: solid 1px var(--tertiary-color2);
 }
 
-.search-label-filter, .search-label-main {
+.search-label-filter,
+.search-label-main {
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -153,11 +165,10 @@ input[type='search']::-webkit-search-cancel-button {
 
 .bg-search:hover {
   --bg-search-color: var(--secondary-color);
-  --search-icon-color: var(--primary-color)
-
+  --search-icon-color: var(--primary-color);
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -173,12 +184,12 @@ input[type="checkbox"] {
   --highlight-color: var(--secondary-color);
 }
 
-input[type="checkbox"]:checked + .item {
+input[type='checkbox']:checked + .item {
   --highlight-color: var(--secondary-color);
 }
 
-input[type="checkbox"]:checked + label,
-input[type="checkbox"]:focus-visible + label {
+input[type='checkbox']:checked + label,
+input[type='checkbox']:focus-visible + label {
   background: var(--secondary-color);
   display: flex;
   font-weight: bold;
@@ -188,7 +199,7 @@ input[type="checkbox"]:focus-visible + label {
   display: none;
 }
 
-input[type="checkbox"]:checked + label svg {
+input[type='checkbox']:checked + label svg {
   display: unset;
 }
 
@@ -204,6 +215,29 @@ input[type="checkbox"]:checked + label svg {
 
 .search-icon-grey {
   --search-icon-color: var(--tertiary-color);
+}
+
+.cross path {
+  stroke: black;
+}
+
+.tag {
+  position: absolute;
+  top: 5em;
+  left: -10px;
+  border-radius: 10px;
+  background: var(--secondary-color);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  align-items: center;
+  max-width: 10em;
+  width: 100%;
+}
+
+.tag svg {
+  cursor: pointer;
 }
 
 /* LAYOUT */
@@ -256,13 +290,14 @@ input[type="checkbox"]:checked + label svg {
   --primary-color: #000000;
   --secondary-color: #ffd15b;
   --tertiary-color: #7a7a7a;
-  --tertiary-color2: #C6C6C6;
+  --tertiary-color2: #c6c6c6;
   --main-bg: #e5e5e5;
   --card-bg: white;
   --bg-search-color: var(--primary-color);
   --search-icon-color: white;
   --border-radius: 11px;
   --highlight-color: transparent;
+  --box-shadow-card: 0 4px 34px 30px #0000000a;
 }
 
 /* VENDORS */
