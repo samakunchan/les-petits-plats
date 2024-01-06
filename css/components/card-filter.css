@@ -1,10 +1,17 @@
-.row-filters {
+.section-filters .row-filters {
   position: relative;
-  height: 15em;
+  height: 4em;
+  min-width: 16em;
 }
 
-.row-filters .filter-card-ingredients {
-  width: 14em;
+.section-filters .row-total {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+}
+
+.section-filters .row-filters .filter-card-ingredients {
+  width: 12em;
   background: var(--card-bg);
   border-radius: var(--border-radius);
   position: absolute;
@@ -14,7 +21,7 @@
   box-shadow: var(--box-shadow-card);
 }
 
-.list-ingredients {
+.filter-card-ingredients .list-ingredients {
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   max-height: 10em;

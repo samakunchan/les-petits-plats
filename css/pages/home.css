@@ -1,0 +1,9 @@
+.section-filters {
+    display: flex;
+    align-items: center;
+}
+
+.section-results {
+    max-width: 120em;
+    margin: 0 auto;
+}

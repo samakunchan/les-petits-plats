@@ -4,6 +4,11 @@
 
 /* BASE */
 
+body {
+  max-width: 120em;
+  margin: 0 auto!important;
+}
+
 main {
   background: var(--main-bg);
   padding: 2em 4em;
@@ -70,13 +75,17 @@ h3 {
   padding: 4px 15px;
 }
 
+.container-card {
+  flex: 0 0 33.3333%;
+  padding: 1em;
+}
+
 .card-dish {
   background: var(--card-bg);
   overflow: hidden;
   border-radius: var(--border-radius);
   position: relative;
   box-shadow: var(--box-shadow-card);
-  max-width: 25em;
 }
 
 .card-dish img {
@@ -99,13 +108,20 @@ h3 {
   padding: 0.7em 0;
 }
 
-.row-filters {
+.section-filters .row-filters {
   position: relative;
-  height: 15em;
+  height: 4em;
+  min-width: 16em;
 }
 
-.row-filters .filter-card-ingredients {
-  width: 14em;
+.section-filters .row-total {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+}
+
+.section-filters .row-filters .filter-card-ingredients {
+  width: 12em;
   background: var(--card-bg);
   border-radius: var(--border-radius);
   position: absolute;
@@ -115,7 +131,7 @@ h3 {
   box-shadow: var(--box-shadow-card);
 }
 
-.list-ingredients {
+.filter-card-ingredients .list-ingredients {
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   max-height: 10em;
@@ -221,10 +237,13 @@ input[type='checkbox']:checked + label svg {
   stroke: black;
 }
 
+.section-tag {
+  margin: 1em 0;
+  min-height: 3em;
+}
+
 .tag {
-  position: absolute;
-  top: 5em;
-  left: -10px;
+  min-height: 3em;
   border-radius: 10px;
   background: var(--secondary-color);
   padding: 10px 15px;
@@ -232,7 +251,7 @@ input[type='checkbox']:checked + label svg {
   justify-content: space-between;
   z-index: 2;
   align-items: center;
-  max-width: 10em;
+  max-width: 13em;
   width: 100%;
 }
 
@@ -245,10 +264,11 @@ input[type='checkbox']:checked + label svg {
 .bg-image {
   background: center/cover no-repeat url(/les-petits-plats/assets/images/recettes/Recette-presentation.png);
   height: 75dvh;
+  position: relative;
 }
 
 .header {
-  position: absolute;
+  position: relative;
   top: 2em;
   left: 2em;
 }
@@ -283,6 +303,16 @@ input[type='checkbox']:checked + label svg {
 }
 
 /* PAGES */
+
+.section-filters {
+  display: flex;
+  align-items: center;
+}
+
+.section-results {
+  max-width: 120em;
+  margin: 0 auto;
+}
 
 /* THEMES */
 
@@ -892,8 +922,8 @@ video {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.flex-wrap{
+  flex-wrap: wrap;
 }
 
 .items-center{
@@ -910,10 +940,6 @@ video {
 
 .gap-2{
   gap: 0.5rem;
-}
-
-.gap-3{
-  gap: 0.75rem;
 }
 
 .gap-30{
@@ -941,10 +967,6 @@ video {
 
 .text-left{
   text-align: left;
-}
-
-.text-center{
-  text-align: center;
 }
 
 .font-semibold{
