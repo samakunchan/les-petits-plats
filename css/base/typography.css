@@ -11,15 +11,22 @@ h3 {
   font-weight: 400 !important;
 }
 
+.card-dish h3 {
+  font-size: 18px;
+}
+
 .header-search h2 {
   font-size: 3em;
   text-transform: uppercase;
 }
 
-.card h4,
-.card h5 {
-  font-weight: 700 !important;
+.card-dish h4,
+.card-dish h5,
+.card-dish .h4,
+.card-dish .h5{
+  /*font-weight: 700 !important;*/
   text-transform: uppercase;
+  font-size: 14px;
 }
 
 .filter-ingredients h4,

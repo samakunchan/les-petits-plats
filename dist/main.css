@@ -6,10 +6,13 @@
 
 main {
   background: var(--main-bg);
+  padding: 2em 4em;
 }
 
-.card h4,
-.card h5 {
+.card-dish h4,
+.card-dish h5,
+.card-dish .h4,
+.card-dish .h5 {
   color: var(--tertiary-color);
 }
 
@@ -28,15 +31,22 @@ h3 {
   font-weight: 400 !important;
 }
 
+.card-dish h3 {
+  font-size: 18px;
+}
+
 .header-search h2 {
   font-size: 3em;
   text-transform: uppercase;
 }
 
-.card h4,
-.card h5 {
-  font-weight: 700 !important;
+.card-dish h4,
+.card-dish h5,
+.card-dish .h4,
+.card-dish .h5{
+  /*font-weight: 700 !important;*/
   text-transform: uppercase;
+  font-size: 14px;
 }
 
 .filter-ingredients h4,
@@ -49,6 +59,44 @@ h3 {
 }
 
 /* COMPONENTS */
+
+.badge {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  border-radius: 20px;
+  background: var(--secondary-color);
+  z-index: 1;
+  padding: 4px 15px;
+}
+
+.card-dish {
+  background: var(--card-bg);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: 0 4px 34px 30px #0000000A;
+}
+
+.card-dish img {
+  height: 18em;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content-ingredients {
+  padding: 1.2em 1.5em;
+}
+
+.card-dish h4,
+.card-dish h3,
+.card-dish .h4,
+.card-dish .h3,
+.card-dish .dish-description,
+.card-dish .ingredients {
+  padding: .7em 0;
+}
 
 .filter-card-ingredients {
   width: 14em;
@@ -161,7 +209,7 @@ input[type="checkbox"]:checked + label svg {
 /* LAYOUT */
 
 .bg-image {
-  background: center/cover no-repeat url(/les-petits-plats/assets/images/Recette-presentation.png);
+  background: center/cover no-repeat url(/les-petits-plats/assets/images/recettes/Recette-presentation.png);
   height: 75dvh;
 }
 

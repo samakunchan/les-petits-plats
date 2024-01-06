@@ -1,9 +1,12 @@
 main {
   background: var(--main-bg);
+  padding: 2em 4em;
 }
 
-.card h4,
-.card h5 {
+.card-dish h4,
+.card-dish h5,
+.card-dish .h4,
+.card-dish .h5 {
   color: var(--tertiary-color);
 }
 
