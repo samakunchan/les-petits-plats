@@ -2,12 +2,14 @@
   position: relative;
   height: 4em;
   min-width: 16em;
+  padding: 0 3em;
 }
 
 .section-filters .row-total {
   flex: 1;
   display: flex;
   justify-content: end;
+  padding: 0 3em;
 }
 
 .section-filters .row-filters .filter-card-ingredients {

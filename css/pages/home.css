@@ -1,9 +1,16 @@
 .section-filters {
     display: flex;
     align-items: center;
+    max-width: 120em;
+    margin: 0 auto;
 }
 
 .section-results {
     max-width: 120em;
     margin: 0 auto;
+}
+
+.section-tag {
+    max-width: 120em;
+    margin: 1em auto;
 }

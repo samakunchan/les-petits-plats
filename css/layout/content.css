@@ -1,0 +1,10 @@
+.container-card {
+    flex: 0 0 33.3333%;
+    padding: 3em;
+}
+
+.container-tag {
+    display: flex;
+    padding: 0 3em;
+    gap: 1em;
+}
