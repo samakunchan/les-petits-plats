@@ -75,11 +75,6 @@ h3 {
   padding: 4px 15px;
 }
 
-.container-card {
-  flex: 0 0 33.3333%;
-  padding: 1em;
-}
-
 .card-dish {
   background: var(--card-bg);
   overflow: hidden;
@@ -112,12 +107,14 @@ h3 {
   position: relative;
   height: 4em;
   min-width: 16em;
+  padding: 0 3em;
 }
 
 .section-filters .row-total {
   flex: 1;
   display: flex;
   justify-content: end;
+  padding: 0 3em;
 }
 
 .section-filters .row-filters .filter-card-ingredients {
@@ -302,16 +299,34 @@ input[type='checkbox']:checked + label svg {
   background: white;
 }
 
+.container-card {
+  flex: 0 0 33.3333%;
+  padding: 3em;
+}
+
+.container-tag {
+  display: flex;
+  padding: 0 3em;
+  gap: 1em;
+}
+
 /* PAGES */
 
 .section-filters {
   display: flex;
   align-items: center;
+  max-width: 120em;
+  margin: 0 auto;
 }
 
 .section-results {
   max-width: 120em;
   margin: 0 auto;
+}
+
+.section-tag {
+  max-width: 120em;
+  margin: 1em auto;
 }
 
 /* THEMES */
