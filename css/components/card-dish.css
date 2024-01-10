@@ -20,7 +20,32 @@
 .card-dish h3,
 .card-dish .h4,
 .card-dish .h3,
-.card-dish .dish-description,
-.card-dish .ingredients {
+.card-dish .dish-description .card-dish .ingredient {
   padding: 0.7em 0;
+}
+
+.card-dish .ingredient {
+  height: 4em;
+}
+
+.ingredient p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-dish .dish-description {
+  min-height: 8em;
+}
+
+.card-dish .space-btw-ingredient2 {
+  margin-bottom: 20px;
+}
+
+.max-lines {
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 7.6em;
 }
