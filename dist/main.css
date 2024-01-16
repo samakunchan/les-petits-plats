@@ -37,6 +37,15 @@ main {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.px-x {
+  padding: 1em;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
 }
@@ -159,16 +168,22 @@ h3 {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   height: 3.5em;
   overflow: hidden;
   box-shadow: var(--box-shadow-card);
 }
 
-.filter-card-ingredients .list-ingredients {
+.filter-card-ingredients .list-ingredients,
+.filter-card-ingredients .list-appliances,
+.filter-card-ingredients .list-ustensils {
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   max-height: 10em;
+}
+
+.section-filters .row-filters .filter-card-ingredients.show {
+  height: unset;
 }
 
 input[type='search'],
@@ -245,11 +260,11 @@ input[type='checkbox']:focus-visible + label {
   font-weight: bold;
 }
 
-.item svg {
+.item img {
   display: none;
 }
 
-input[type='checkbox']:checked + label svg {
+input[type='checkbox']:checked + label img {
   display: unset;
 }
 
@@ -283,7 +298,7 @@ input[type='checkbox']:checked + label svg {
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 0;
   align-items: center;
   max-width: 13em;
   width: 100%;
@@ -937,11 +952,6 @@ video {
   margin-right: 1.25rem;
 }
 
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .mt-6{
   margin-top: 1.5rem;
 }
@@ -993,11 +1003,6 @@ video {
 .px-3{
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.px-5{
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 
 .py-2{

@@ -4,6 +4,10 @@ export const noIngredient = `Pas d'ingredient`;
 
 export const maximumIngredientsToShow = 6;
 
+/**
+ * @param data
+ * @return {Record[]}
+ */
 export const getJson = (data) => data.json();
 export const getError = () => errorMessage;
 
@@ -12,3 +16,10 @@ export const getError = () => errorMessage;
  * @type {string[]}
  */
 export const unitsMeasure = ['grammes', 'g', 'centilitres', 'cl', 'millilitres', 'ml'];
+
+export const Category = {
+  ingredients: 'ingredients',
+  ingredient: 'ingredient',
+  appliance: 'appliance',
+  ustensils: 'ustensils',
+};
