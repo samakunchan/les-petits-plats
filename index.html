@@ -45,7 +45,8 @@
         <div class="row-filters relative text-left flex justify-start gap-30 px-3 py-2">
           <div class="filter-card-ingredients ring-1 ring-inset ring-gray-300">
             <div
-              class="flex justify-between my-4 px-5 font-semibold cursor-pointer"
+              id="ingredients"
+              class="header-filters px-x flex justify-between font-semibold cursor-pointer"
               aria-expanded="true"
               aria-haspopup="true"
               >
@@ -69,69 +70,22 @@
                 <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" />
               </svg>
             </label>
-            <div class="list-ingredients mt-6 overflow-scroll">
-              <div class="item item-1">
-                <input type="checkbox" name="ingredients" id="ingredient1">
-                <label class="label-1 px-5 py-2 flex justify-between items-center" for="ingredient1" >
-                  Jus de citron
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-                
-              </div>
-              <div class="item item-2">
-                <input type="checkbox" name="ingredients" id="ingredient2">
-                <label class="label-2 px-5 py-2 flex justify-between items-center" for="ingredient2" >
-                  Glaçons
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-3">
-                <input type="checkbox" name="ingredients" id="ingredient3">
-                <label class="label-3 px-5 py-2 flex justify-between items-center" for="ingredient3" >
-                  Tomate
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-4">
-                <input type="checkbox" name="ingredients" id="ingredient4">
-                <label class="label-4 px-5 py-2 flex justify-between items-center" for="ingredient4" >
-                  Poulet
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-5">
-                <input type="checkbox" name="ingredients" id="ingredient5">
-                <label class="label-4 px-5 py-2 flex justify-between items-center" for="ingredient5" >
-                  Poivron rouge
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-            </div>
+            
+            <!-- Ingredients -->
+            <div class="list-ingredients mt-6 overflow-scroll"></div>
+            <!-- End Ingredients -->
+            
           </div>
         </div>
         <div class="row-filters relative text-left flex justify-start gap-30 px-3 py-2">
           <div class="filter-card-ingredients ring-1 ring-inset ring-gray-300">
             <div
-              class="flex justify-between my-4 px-5 font-semibold cursor-pointer"
+              id="appareils"
+              class="header-filters px-x flex justify-between font-semibold cursor-pointer"
               aria-expanded="true"
               aria-haspopup="true"
             >
-              <h4>Ingrédients</h4>
+              <h4>Appareils</h4>
               <svg class="w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path
                   fill-rule="evenodd"
@@ -151,69 +105,22 @@
                 <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" />
               </svg>
             </label>
-            <div class="list-ingredients mt-6 overflow-scroll">
-              <div class="item item-1">
-                <input type="checkbox" name="ingredients" id="appareil1">
-                <label class="label-1 px-5 py-2 flex justify-between items-center" for="appareil1" >
-                  Jus de citron
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              
-              </div>
-              <div class="item item-2">
-                <input type="checkbox" name="ingredients" id="appareil2">
-                <label class="label-2 px-5 py-2 flex justify-between items-center" for="appareil2" >
-                  Glaçons
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-3">
-                <input type="checkbox" name="ingredients" id="appareil3">
-                <label class="label-3 px-5 py-2 flex justify-between items-center" for="appareil3" >
-                  Tomate
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-4">
-                <input type="checkbox" name="ingredients" id="appareil4">
-                <label class="label-4 px-5 py-2 flex justify-between items-center" for="appareil4" >
-                  Poulet
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-5">
-                <input type="checkbox" name="ingredients" id="appareil5">
-                <label class="label-4 px-5 py-2 flex justify-between items-center" for="appareil5" >
-                  Poivron rouge
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-            </div>
+            
+            <!-- Appareils -->
+            <div class="list-ingredients mt-6 overflow-scroll"></div>
+            <!-- End Appareils -->
+            
           </div>
         </div>
         <div class="row-filters relative text-left flex justify-start gap-30 px-3 py-2">
           <div class="filter-card-ingredients ring-1 ring-inset ring-gray-300">
             <div
-              class="flex justify-between my-4 px-5 font-semibold cursor-pointer"
+              id="ustensiles"
+              class="header-filters px-x flex justify-between font-semibold cursor-pointer"
               aria-expanded="true"
               aria-haspopup="true"
             >
-              <h4>Ingrédients</h4>
+              <h4>Ustensiles</h4>
               <svg class="w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path
                   fill-rule="evenodd"
@@ -233,59 +140,10 @@
                 <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" />
               </svg>
             </label>
-            <div class="list-ingredients mt-6 overflow-scroll">
-              <div class="item item-1">
-                <input type="checkbox" name="ingredients" id="ustensile1">
-                <label class="label-1 px-5 py-2 flex justify-between items-center" for="ustensile1" >
-                  Jus de citron
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              
-              </div>
-              <div class="item item-2">
-                <input type="checkbox" name="ingredients" id="ustensile2">
-                <label class="label-2 px-5 py-2 flex justify-between items-center" for="ustensile2" >
-                  Glaçons
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-3">
-                <input type="checkbox" name="ingredients" id="ustensile3">
-                <label class="label-3 px-5 py-2 flex justify-between items-center" for="ustensile3" >
-                  Tomate
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-4">
-                <input type="checkbox" name="ingredients" id="ustensile4">
-                <label class="label-4 px-5 py-2 flex justify-between items-center" for="ustensile4" >
-                  Poulet
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-              <div class="item item-5">
-                <input type="checkbox" name="ingredients" id="ustensile5">
-                <label class="label-4 px-5 py-2 flex justify-between items-center" for="ustensile5" >
-                  Poivron rouge
-                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="black"/>
-                    <path d="M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11" stroke="#FFD15B" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </label>
-              </div>
-            </div>
+            
+            <!-- Ustensiles -->
+            <div class="list-ingredients mt-6 overflow-scroll"></div>
+            <!-- End Ustensiles -->
           </div>
         </div>
         
@@ -298,18 +156,18 @@
       
       <section class="section-tag">
         <div class="container-tag">
-          <div class="tag">
-            Lait de coco
-            <svg class="cross" width="13" height="13" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="tag">
-            Lait de coco
-            <svg class="cross" width="13" height="13" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
+<!--          <div class="tag">-->
+<!--            Lait de coco-->
+<!--            <svg class="cross" width="13" height="13" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--              <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--            </svg>-->
+<!--          </div>-->
+<!--          <div class="tag">-->
+<!--            Lait de coco-->
+<!--            <svg class="cross" width="13" height="13" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--              <path d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--            </svg>-->
+<!--          </div>-->
         </div>
       </section>
       

@@ -70,10 +70,10 @@ input[type='checkbox']:focus-visible + label {
   font-weight: bold;
 }
 
-.item svg {
+.item img {
   display: none;
 }
 
-input[type='checkbox']:checked + label svg {
+input[type='checkbox']:checked + label img {
   display: unset;
 }
