@@ -1,12 +1,12 @@
 import { noIngredient } from '../../core/utils/utils.js';
+class HTMLVoidElement extends HTMLBRElement {}
 
 export class RecipesServices {
   /**
-   *
    * @param recipes {RecipeModel[]}
-   * @return {*}
+   * @return {RecipeModel[]}
    */
-  getRecipesDOM(recipes) {
+  recipesToDOM(recipes) {
     const allCards = [...document.getElementsByClassName('container-card')];
 
     if (allCards.length > 0) {
@@ -16,6 +16,41 @@ export class RecipesServices {
     return recipes.map((recipe) => {
       document.querySelector(`.section-results`).appendChild(this.buildDOMRecipes(recipe));
       return recipe;
+    });
+  }
+
+  /**
+   * @param ingredients
+   * @param idTarget
+   * @param indexFilter
+   */
+  filtersToDOM(ingredients, idTarget, indexFilter) {
+    const listFilters = [...document.getElementsByClassName('list-ingredients')];
+
+    ingredients.forEach((ingredient, index) => {
+      const item = document.createElement('div');
+      item.classList.add(`item`, `item-${index + 1}`);
+
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = 'selections[]';
+      input.id = `${idTarget}-${index + 1}`;
+
+      const label = document.createElement('label');
+      label.setAttribute('for', `${idTarget}-${index + 1}`);
+      label.classList.add(`label-${index + 1}`, 'px-5', 'py-2', 'flex', 'justify-between', 'items-center');
+      label.textContent = ingredient;
+
+      const img = document.createElement('img');
+      img.src = `assets/svgs/cross-round.svg`;
+      img.alt = `Annuler la selection de ${ingredient}`;
+
+      label.appendChild(img);
+
+      item.appendChild(input);
+      item.appendChild(label);
+
+      listFilters[indexFilter].appendChild(item);
     });
   }
 
