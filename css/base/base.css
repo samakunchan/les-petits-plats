@@ -34,3 +34,8 @@ main {
 .px-x {
   padding: 1em;
 }
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}

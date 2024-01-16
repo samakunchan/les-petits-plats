@@ -1,5 +1,4 @@
-import { noIngredient } from '../../core/utils/utils.js';
-class HTMLVoidElement extends HTMLBRElement {}
+import { Category, noIngredient } from '../../core/utils/utils.js';
 
 export class RecipesServices {
   /**
@@ -20,30 +19,54 @@ export class RecipesServices {
   }
 
   /**
-   * @param ingredients
-   * @param idTarget
-   * @param indexFilter
+   * @param filtersTextList {string[]}
+   * @param category {string}
+   * @param indexFilter {number}
    */
-  filtersToDOM(ingredients, idTarget, indexFilter) {
-    const listFilters = [...document.getElementsByClassName('list-ingredients')];
+  filtersToDOM(filtersTextList, category, indexFilter) {
+    const tagsDOM = [...document.getElementsByClassName('tag')];
+    const textTags = tagsDOM.map((tag) => tag.textContent).filter((tag, index, self) => self.indexOf(tag) === index);
+    const listFilters = [...document.getElementsByClassName('filters')];
 
-    ingredients.forEach((ingredient, index) => {
+    if (category === Category.ingredients) {
+      const listIngredientItems = [...listFilters[indexFilter].getElementsByClassName('item')];
+      if (listIngredientItems.length > 0) {
+        listIngredientItems.forEach((text) => document.querySelector(`.list-ingredients`).removeChild(text));
+      }
+    }
+
+    if (category === Category.appliance) {
+      const listApplianceItems = [...listFilters[indexFilter].getElementsByClassName('item')];
+      if (listApplianceItems.length > 0) {
+        listApplianceItems.forEach((text) => listFilters[indexFilter].removeChild(text));
+      }
+    }
+
+    if (category === Category.ustensils) {
+      const listUstensilItems = [...listFilters[indexFilter].getElementsByClassName('item')];
+      if (listUstensilItems.length > 0) {
+        listUstensilItems.forEach((text) => listFilters[indexFilter].removeChild(text));
+      }
+    }
+
+    filtersTextList.forEach((text, index) => {
       const item = document.createElement('div');
       item.classList.add(`item`, `item-${index + 1}`);
 
       const input = document.createElement('input');
       input.type = 'checkbox';
-      input.name = 'selections[]';
-      input.id = `${idTarget}-${index + 1}`;
+      input.name = 'selections';
+      input.id = `${category}-${index + 1}`;
+      input.checked = textTags.includes(text);
 
       const label = document.createElement('label');
-      label.setAttribute('for', `${idTarget}-${index + 1}`);
+      label.setAttribute('for', `${category}-${index + 1}`);
       label.classList.add(`label-${index + 1}`, 'px-5', 'py-2', 'flex', 'justify-between', 'items-center');
-      label.textContent = ingredient;
+      label.textContent = text;
 
       const img = document.createElement('img');
       img.src = `assets/svgs/cross-round.svg`;
-      img.alt = `Annuler la selection de ${ingredient}`;
+      img.alt = `Annuler la selection de ${filtersTextList}`;
 
       label.appendChild(img);
 

@@ -23,7 +23,9 @@
   box-shadow: var(--box-shadow-card);
 }
 
-.filter-card-ingredients .list-ingredients {
+.filter-card-ingredients .list-ingredients,
+.filter-card-ingredients .list-appliances,
+.filter-card-ingredients .list-ustensils {
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   max-height: 10em;

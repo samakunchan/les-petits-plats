@@ -5,6 +5,9 @@ import { FilterBuilder } from '../utils/filter-builder.js';
 export class RecipesRepository {
   constructor() {
     this.resultsRecipes = [];
+    this.resultsIngredients = [];
+    this.resultsAppliances = [];
+    this.resultsUstensils = [];
   }
 
   /**
@@ -37,14 +40,66 @@ export class RecipesRepository {
    * @param ingredientsRequire {FilterModel[]}
    * @return {Record[]}
    */
-  getRecipesFilteredWithTag(resultsRecipes, ingredientsRequire) {
+  getRecipesFiltered(resultsRecipes, ingredientsRequire) {
     this.resultsRecipes = resultsRecipes;
+
     const resultsWithTwoFilter = new FilterBuilder(this.resultsRecipes);
     ingredientsRequire.forEach((_, index) => {
-      this.buildRecipesWithFilter(ingredientsRequire, resultsWithTwoFilter, index);
+      this._buildRecipesWithFilter(ingredientsRequire, resultsWithTwoFilter, index);
     });
 
     return resultsWithTwoFilter.resultsRecipes;
+  }
+
+  /**
+   * @return {Promise<string[]>}
+   */
+  async gatherAllIngredients() {
+    this.resultsIngredients = this._getIngredients(this.resultsRecipes);
+    return this.resultsIngredients;
+  }
+
+  /**
+   * @param search {string}
+   * @return {Promise<string[] | string>}
+   */
+  async gatherAllIngredientsWithSearch(search) {
+    this.resultsIngredients = this._getIngredients(this.resultsRecipes);
+    return this._searchIngredients(this.resultsIngredients, search);
+  }
+
+  /**
+   * @return {Promise<string[]>}
+   */
+  async gatherAllAppliances() {
+    this.resultsAppliances = this._getAppliances(this.resultsRecipes);
+    return this.resultsAppliances;
+  }
+
+  /**
+   * @param search {string}
+   * @return {Promise<string[] | string>}
+   */
+  async gatherAllAppliancesWithSearch(search) {
+    this.resultsAppliances = this._getAppliances(this.resultsRecipes);
+    return this._searchAppliances(this.resultsAppliances, search);
+  }
+
+  /**
+   * @return {Promise<string[]>}
+   */
+  async gatherAllUstensils() {
+    this.resultsUstensils = this._getUstensils(this.resultsRecipes);
+    return this.resultsUstensils;
+  }
+
+  /**
+   * @param search {string}
+   * @return {Promise<string[] | string>}
+   */
+  async gatherAllUstensilsWithSearch(search) {
+    this.resultsUstensils = this._getUstensils(this.resultsRecipes);
+    return this._searchUstensils(this.resultsUstensils, search);
   }
 
   /**
@@ -53,7 +108,7 @@ export class RecipesRepository {
    * @param index {number}
    * @return {RecipeModel[]}
    */
-  buildRecipesWithFilter(ingredientsRequire, builder, index) {
+  _buildRecipesWithFilter(ingredientsRequire, builder, index) {
     if (ingredientsRequire[index].category === Category.ingredients) {
       return builder.withIngredientsFilter(ingredientsRequire);
     } else if (ingredientsRequire[index].category === Category.appliance) {
@@ -66,36 +121,6 @@ export class RecipesRepository {
   }
 
   /**
-   * @return {Promise<string[]>}
-   */
-  async gatherAllAppliances() {
-    return this.getRecipes().then(this._getAppliances).catch(getError);
-  }
-
-  /**
-   * @return {Promise<string[]>}
-   */
-  async gatherAllIngredients() {
-    return this.getRecipes().then(this._getIngredients).catch(getError);
-  }
-
-  /**
-   * @return {Promise<string[]>}
-   */
-  async gatherAllUstensils() {
-    return this.getRecipes().then(this._getUstensils).catch(getError);
-  }
-
-  /**
-   * @param recipes {RecipeModel[]}
-   * @return {string[]}
-   * @private
-   */
-  _getAppliances(recipes) {
-    return recipes.map((recipe) => recipe.appliance).filter((value, index, self) => self.indexOf(value) === index);
-  }
-
-  /**
    * @param recipes {RecipeModel[]}
    * @return {string[]}
    * @private
@@ -105,6 +130,15 @@ export class RecipesRepository {
       .map((recipe) => recipe.ingredients.map(({ ingredient }) => ingredient))
       .reduce((a, b) => a.concat(b), [])
       .filter((recipe, index, self) => self.indexOf(recipe) === index);
+  }
+
+  /**
+   * @param recipes {RecipeModel[]}
+   * @return {string[]}
+   * @private
+   */
+  _getAppliances(recipes) {
+    return recipes.map((recipe) => recipe.appliance).filter((value, index, self) => self.indexOf(value) === index);
   }
 
   /**
@@ -140,6 +174,51 @@ export class RecipesRepository {
     return this.resultsRecipes;
   }
 
+  /**
+   * @param ingredients {string[]}
+   * @param search {string}
+   * @private
+   */
+  _searchIngredients(ingredients, search) {
+    const keywords = new RegExp(search, 'i');
+
+    this.resultsIngredients = ingredients.filter((ingredient) => ingredient.match(keywords));
+
+    return this.resultsIngredients;
+  }
+
+  /**
+   * @param appliances {string[]}
+   * @param search {string}
+   * @private
+   */
+  _searchAppliances(appliances, search) {
+    const keywords = new RegExp(search, 'i');
+
+    this.resultsAppliances = appliances.filter((appliance) => appliance.match(keywords));
+
+    return this.resultsAppliances;
+  }
+
+  /**
+   * @param ustensils {string[]}
+   * @param search {string}
+   * @private
+   */
+  _searchUstensils(ustensils, search) {
+    const keywords = new RegExp(search, 'i');
+
+    this.resultsUstensils = ustensils.filter((ustensil) => ustensil.match(keywords));
+
+    return this.resultsUstensils;
+  }
+
+  /**
+   * @param ing
+   * @param keywords
+   * @return {*}
+   * @private
+   */
   _matchIngredients(ing, keywords) {
     return ing[Category.ingredient].match(keywords);
   }
