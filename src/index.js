@@ -59,7 +59,6 @@ class App {
 
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', async () => {
-
         if (checkbox.checked) {
           if (this._recipeRepository.resultsRecipes.length === 0) {
             await this._recipeRepository.getRecipes();
@@ -67,7 +66,7 @@ class App {
 
           if (!this._selectedCheckboxResults.includes(checkbox)) {
             this._selectedCheckboxResults.push(checkbox.id);
-            this._tagsServices.addTag(checkbox.parentNode.lastChild.textContent);
+            this._tagsServices.addTag(checkbox.parentNode.lastChild.textContent, checkbox.id);
             const categoryFilter = checkbox.parentNode.lastChild.getAttribute('for').split('-')[0];
             const category = categoryFilter === 'appareils' ? Category.appliance : categoryFilter;
             const filterModel = new FilterModel({
@@ -79,7 +78,6 @@ class App {
             this.reBuildRecipesToDOM();
           }
         } else {
-
           const tag = checkbox.parentNode.lastChild.textContent;
           const indexToRemove = this._selectedCheckboxResults.indexOf(checkbox.id);
           if (indexToRemove !== -1) {
@@ -90,8 +88,9 @@ class App {
 
             this._ingredientsRequire.splice(indexIngredient, 1);
             this.reBuildRecipesToDOM();
-           }
+          }
         }
+        this.listenTags();
       });
     });
   }
@@ -118,6 +117,28 @@ class App {
       this.reBuildUstensilsToDOM();
       this.listenFiltersAndCreateTags();
     });
+  }
+
+  listenTags() {
+    const tags = [...document.getElementsByClassName('tag')];
+    tags.forEach(tag => {
+      document.getElementById(tag.getElementsByTagName('img')[0].id).addEventListener('click', (event) => {
+
+        const checkboxToRemove = tag.getElementsByTagName('img')[0].id.split('-').filter((_, index) => index !== 0).join('-');
+        const indexToRemoveTheCheckbox = this._selectedCheckboxResults.indexOf(checkboxToRemove);
+        document.getElementById(checkboxToRemove).checked = false;
+
+        if (indexToRemoveTheCheckbox !== -1) {
+          this._selectedCheckboxResults.splice(indexToRemoveTheCheckbox, 1);
+
+          this._tagsServices.removeTag(tag.textContent);
+          const indexIngredient = this._ingredientsRequire.findIndex((ingredient) => ingredient.name === tag);
+
+          this._ingredientsRequire.splice(indexIngredient, 1);
+          this.reBuildRecipesToDOM();
+        }
+      })
+    })
   }
 
   reBuildRecipesToDOM() {
@@ -152,23 +173,3 @@ class App {
 
 new App();
 
-// ```js
-// listenFiltersAndCreateTags() {
-//   const checkboxes = [...document.querySelectorAll('input[type="checkbox"]')]
-//     .filter((box, index, self) => self.indexOf(box) === index);
-//   checkboxes.forEach((checkbox) => {
-//     checkbox.addEventListener('change', async (event) => {
-//
-//       if (checkbox.checked) {
-//
-//       }
-//     });
-//   });
-// }
-//
-// listenFilterIngredients() {
-//   document.getElementById('searchIngredient').addEventListener('input', async (event) => {
-//
-//   });
-// }
-// ```

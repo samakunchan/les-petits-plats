@@ -3,12 +3,13 @@ export class TagService {
     this.allTagsHere = [];
   }
 
-  addTag(text) {
+  addTag(text, idTag) {
     const tag = document.createElement('div');
     tag.classList.add('tag');
     tag.textContent = text;
 
     const img = document.createElement('img');
+    img.id = `tag-${idTag}`;
     img.src = `assets/svgs/cross.svg`;
     img.alt = `Annuler la selection de ${text}`;
 
