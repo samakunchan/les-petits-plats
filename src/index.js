@@ -121,10 +121,13 @@ class App {
 
   listenTags() {
     const tags = [...document.getElementsByClassName('tag')];
-    tags.forEach(tag => {
-      document.getElementById(tag.getElementsByTagName('img')[0].id).addEventListener('click', (event) => {
-
-        const checkboxToRemove = tag.getElementsByTagName('img')[0].id.split('-').filter((_, index) => index !== 0).join('-');
+    tags.forEach((tag) => {
+      document.getElementById(tag.getElementsByTagName('img')[0].id).addEventListener('click', () => {
+        const checkboxToRemove = tag
+          .getElementsByTagName('img')[0]
+          .id.split('-')
+          .filter((_, index) => index !== 0)
+          .join('-');
         const indexToRemoveTheCheckbox = this._selectedCheckboxResults.indexOf(checkboxToRemove);
         document.getElementById(checkboxToRemove).checked = false;
 
@@ -137,8 +140,8 @@ class App {
           this._ingredientsRequire.splice(indexIngredient, 1);
           this.reBuildRecipesToDOM();
         }
-      })
-    })
+      });
+    });
   }
 
   reBuildRecipesToDOM() {
@@ -172,4 +175,3 @@ class App {
 }
 
 new App();
-

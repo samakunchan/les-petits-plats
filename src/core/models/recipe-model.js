@@ -33,11 +33,7 @@ export class RecipeModel {
    * @return {string}
    */
   get name() {
-    return this._name
-      .split('')
-      .map((text) => text.toLowerCase())
-      .map((text, index) => (index === 0 ? text.toUpperCase() : text))
-      .join('');
+    return this._name.ucFirst();
   }
 
   /**
@@ -85,6 +81,6 @@ export class RecipeModel {
    * @return {string[]}
    */
   get ustensils() {
-    return this._ustensils;
+    return this._ustensils.map((ustensil) => ustensil.ucFirst());
   }
 }

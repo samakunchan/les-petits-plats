@@ -1,4 +1,3 @@
-export const errorInitMessage = `L'application ne peut pas se lancer.`;
 export const errorMessage = `Une érreur est survenue lors du téléchargement du fichier JSON`;
 export const noIngredient = `Pas d'ingredient`;
 
@@ -22,4 +21,11 @@ export const Category = {
   ingredient: 'ingredient',
   appliance: 'appliance',
   ustensils: 'ustensils',
+};
+
+String.prototype.ucFirst = function () {
+  return this.split('')
+    .map((text) => text.toLowerCase())
+    .map((text, index) => (index === 0 ? text.toUpperCase() : text))
+    .join('');
 };
