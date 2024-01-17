@@ -33,7 +33,11 @@ export class RecipeModel {
    * @return {string}
    */
   get name() {
-    return this._name;
+    return this._name
+      .split('')
+      .map((text) => text.toLowerCase())
+      .map((text, index) => (index === 0 ? text.toUpperCase() : text))
+      .join('');
   }
 
   /**

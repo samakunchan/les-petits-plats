@@ -16,6 +16,11 @@
   width: 100%;
 }
 
+.tag img {
+  width: 1rem;
+  cursor: pointer;
+}
+
 .tag svg {
   cursor: pointer;
 }

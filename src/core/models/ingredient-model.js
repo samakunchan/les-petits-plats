@@ -12,7 +12,11 @@ export class IngredientModel {
    * @return {string}
    */
   get ingredient() {
-    return this._ingredient;
+    return this._ingredient
+      .split('')
+      .map((text) => text.toLowerCase())
+      .map((text, index) => (index === 0 ? text.toUpperCase() : text))
+      .join('');
   }
 
   /**

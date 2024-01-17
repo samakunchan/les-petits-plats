@@ -76,4 +76,5 @@ input[type='checkbox']:focus-visible + label {
 
 input[type='checkbox']:checked + label img {
   display: unset;
+  cursor: pointer;
 }

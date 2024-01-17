@@ -266,6 +266,7 @@ input[type='checkbox']:focus-visible + label {
 
 input[type='checkbox']:checked + label img {
   display: unset;
+  cursor: pointer;
 }
 
 .search-icon {
@@ -302,6 +303,11 @@ input[type='checkbox']:checked + label img {
   align-items: center;
   max-width: 13em;
   width: 100%;
+}
+
+.tag img {
+  width: 1rem;
+  cursor: pointer;
 }
 
 .tag svg {
