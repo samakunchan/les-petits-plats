@@ -161,16 +161,28 @@ export class RecipesRepository {
    */
   _searchRecipes(recipes, search) {
     const keywords = new RegExp(search, 'i');
+    const resultsRecipesLocal = [];
 
-    this.resultsRecipes = recipes
-      .map((record) => new RecipeModel(record))
-      .filter(
-        (recipe) =>
-          recipe.name.match(keywords) ||
-          recipe.description.match(keywords) ||
-          recipe.ingredients.some((ing) => this._matchIngredients(ing, keywords)),
-      );
+    for (let i = 0; i < recipes.length; i++) {
+      const record = recipes[i];
+      const recipe = new RecipeModel(record);
 
+      const isMatchName = recipe.name.match(keywords);
+      const isMatchDescription = recipe.name.match(keywords);
+      let isMatchIngredients = false;
+
+      for (let j = 0; j < record.ingredients.length; j++) {
+        if (record.ingredients[j][Category.ingredient].match(keywords)) {
+          isMatchIngredients = true;
+          break;
+        }
+      }
+      if (isMatchName || isMatchDescription || isMatchIngredients) {
+        resultsRecipesLocal.push(recipe);
+      }
+    }
+
+    this.resultsRecipes = resultsRecipesLocal;
     return this.resultsRecipes;
   }
 
