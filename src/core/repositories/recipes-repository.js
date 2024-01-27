@@ -175,52 +175,6 @@ export class RecipesRepository {
   }
 
   /**
-   * @param recipes {RecipeModel[]}
-   * @param search {string}
-   * @return {RecipeModel[]}
-   * @private
-   */
-  _searchRecipesV2(recipes, search) {
-    const keywords = new RegExp(search, 'i');
-    const resultsRecipesLocal = [];
-
-    for (let i = 0; i < recipes.length; i++) {
-      const record = recipes[i];
-      const recipe = new RecipeModel(record);
-
-      const isMatchName = recipe.name.match(keywords);
-      const isMatchDescription = recipe.name.match(keywords);
-      let isMatchIngredients = false;
-
-      for (let j = 0; j < record.ingredients.length; j++) {
-        if (record.ingredients[j][Category.ingredient].match(keywords)) {
-          isMatchIngredients = true;
-          break;
-        }
-      }
-      if (isMatchName || isMatchDescription || isMatchIngredients) {
-        resultsRecipesLocal.push(recipe);
-      }
-    }
-
-    this.resultsRecipes = resultsRecipesLocal;
-    return this.resultsRecipes;
-  }
-
-  /**
-   * @param ingredients {string[]}
-   * @param search {string}
-   * @private
-   */
-  _searchIngredients(ingredients, search) {
-    const keywords = new RegExp(search, 'i');
-
-    this.resultsIngredients = ingredients.filter((ingredient) => ingredient.match(keywords));
-
-    return this.resultsIngredients;
-  }
-
-  /**
    * @param appliances {string[]}
    * @param search {string}
    * @private
