@@ -54,8 +54,8 @@ export class RecipesRepository {
   /**
    * @return {Promise<string[]>}
    */
-  async gatherAllIngredients() {
-    this.resultsIngredients = this._getIngredients(this.resultsRecipes);
+  async gatherAllIngredients(recipes = null) {
+    this.resultsIngredients = recipes !== null ? this._getIngredients(recipes) : this._getIngredients(this.resultsRecipes);
     return this.resultsIngredients;
   }
 
@@ -71,8 +71,8 @@ export class RecipesRepository {
   /**
    * @return {Promise<string[]>}
    */
-  async gatherAllAppliances() {
-    this.resultsAppliances = this._getAppliances(this.resultsRecipes);
+  async gatherAllAppliances(recipes = null) {
+    this.resultsAppliances = recipes !== null ? this._getAppliances(recipes) : this._getAppliances(this.resultsRecipes);
     return this.resultsAppliances;
   }
 
@@ -88,8 +88,8 @@ export class RecipesRepository {
   /**
    * @return {Promise<string[]>}
    */
-  async gatherAllUstensils() {
-    this.resultsUstensils = this._getUstensils(this.resultsRecipes);
+  async gatherAllUstensils(recipes = null) {
+    this.resultsUstensils = recipes !== null ? this._getUstensils(recipes) : this._getUstensils(this.resultsRecipes);
     return this.resultsUstensils;
   }
 
