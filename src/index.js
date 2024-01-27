@@ -48,6 +48,13 @@ class App {
   listenSearch() {
     document.getElementById('search').addEventListener('input', async (event) => {
       await this._recipeRepository.getRecipesWithSearch(event.target.value);
+      await this._recipeRepository.gatherAllIngredients(this._recipeRepository.resultsRecipes);
+      await this._recipeRepository.gatherAllAppliances(this._recipeRepository.resultsRecipes);
+      await this._recipeRepository.gatherAllUstensils(this._recipeRepository.resultsRecipes);
+      this.reBuildIngredientsToDOM();
+      this.reBuildAppliancesToDOM();
+      this.reBuildUstensilsToDOM();
+      this.listenFiltersAndCreateTags();
       this.reBuildRecipesToDOM();
     });
   }
@@ -65,17 +72,19 @@ class App {
           }
 
           if (!this._selectedCheckboxResults.includes(checkbox)) {
-            this._selectedCheckboxResults.push(checkbox.id);
-            this._tagsServices.addTag(checkbox.parentNode.lastChild.textContent, checkbox.id);
-            const categoryFilter = checkbox.parentNode.lastChild.getAttribute('for').split('-')[0];
-            const category = categoryFilter === 'appareils' ? Category.appliance : categoryFilter;
-            const filterModel = new FilterModel({
-              category: category,
-              name: checkbox.parentNode.lastChild.textContent,
-            });
+            if (!this._selectedCheckboxResults.includes(checkbox.id)) {
+              this._selectedCheckboxResults.push(checkbox.id);
+              this._tagsServices.addTag(checkbox.parentNode.lastChild.textContent, checkbox.id);
+              const categoryFilter = checkbox.parentNode.lastChild.getAttribute('for').split('-')[0];
+              const category = categoryFilter === 'appareils' ? Category.appliance : categoryFilter;
+              const filterModel = new FilterModel({
+                category: category,
+                name: checkbox.parentNode.lastChild.textContent,
+              });
 
-            this._ingredientsRequire.push(filterModel);
-            this.reBuildRecipesToDOM();
+              this._ingredientsRequire.push(filterModel);
+              this.reBuildRecipesToDOM();
+            }
           }
         } else {
           const tag = checkbox.parentNode.lastChild.textContent;
