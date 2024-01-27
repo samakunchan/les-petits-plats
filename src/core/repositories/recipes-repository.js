@@ -175,6 +175,19 @@ export class RecipesRepository {
   }
 
   /**
+   * @param ingredients {string[]}
+   * @param search {string}
+   * @private
+   */
+  _searchIngredients(ingredients, search) {
+    const keywords = new RegExp(search, 'i');
+
+    this.resultsIngredients = ingredients.filter((ingredient) => ingredient.match(keywords));
+
+    return this.resultsIngredients;
+  }
+
+  /**
    * @param appliances {string[]}
    * @param search {string}
    * @private
